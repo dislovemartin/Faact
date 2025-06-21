@@ -1,0 +1,18 @@
+listen: :443 # Listen to the 443 port, disguised as HTTPS traffic
+
+auth:
+  type: password
+  password: "YOUR_VERY_SECRET_PASSWORD" # Set a strong password
+
+# Bandwidth settings (example: 50mbps upload, 100mbps download)
+# Hysteria v2 uses `rate` configuration, and brutal is its default congestion control.
+# We mainly care about the upload speed, so the setting up is higher.
+# The speed here is the speed of each connection.
+transport:
+  type: udp
+  udp:
+    rate: 50 mbps # upload speed
+    recvRate: 100 mbps # download speed
+
+# The default exit is direct. Since the system routing has been taken over by WireGuard,
+# All outbound traffic of Hysteria will automatically pass through the WireGuard tunnel.

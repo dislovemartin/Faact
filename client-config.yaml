@@ -1,0 +1,15 @@
+server: <HK_VPS_PUBLIC_IP>:443 # Your Hong Kong VPS public network IP and Hysteria port
+
+auth:
+  type: password
+  password: "YOUR_VERY_SECRET_PASSWORD" # Password consistent with the server
+
+transport:
+  type: udp
+  udp:
+    rate: 50 mbps # The upload speed should be slightly lower than your actual bandwidth
+    recvRate: 100 mbps
+
+# Open a SOCKS5 proxy in the local 1080 port
+socks5:
+  listen: 127.0.0.1:1080
